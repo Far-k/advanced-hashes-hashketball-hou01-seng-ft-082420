@@ -1,3 +1,5 @@
+require 'pry'
+require './hashketball.rb'
 # Write your code below game_hash
 def game_hash
   {
@@ -127,3 +129,52 @@ def game_hash
 end
 
 # Write code here
+def players
+# all the players
+  players = game_hash.keys.map do |loc|
+    game_hash[loc][:players]
+end
+players.flatten
+end
+
+def find_the_player(name)
+  players.find do |player_object| 
+    player_object[:player_name] == name
+  end
+end
+
+def num_points_scored(player_name)
+  
+  found_player = find_the_player(player_name)
+  
+  found_player[:points]
+end
+
+def shoe_size(name)
+  found_player = find_the_player(name)
+  
+  found_player[:shoe]
+end
+
+def team_colors(team)
+   name = game_hash.each do |home_away, keys|
+    if keys[:team_name] == team
+      
+       return keys[:colors].map
+      end   
+    end    
+  end
+  
+  def team_names
+    name = game_hash.each do |keys|
+      binding.pry
+      if keys[:team_name] == team
+        return names 
+    end
+  end
+ end
+ 
+  
+  
+  
+
